@@ -23,7 +23,7 @@ public class KafkaReceiver {
 
     @KafkaListener(topics = TOPIC, groupId = "group_id")
     public void receive(SensorEvent sensorEvent) {
-        log.info("received sensorEvent='{}'", sensorEvent.toString());
+        log.info("received sensorId='{}', sensorValue='{}'", sensorEvent.getSensorId(), sensorEvent.getSensorValue());
         sensorEventRepository.save(sensorEvent);
         latch.countDown();
     }
