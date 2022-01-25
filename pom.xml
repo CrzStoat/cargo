@@ -27,6 +27,7 @@
         <module>cargo-processor</module>
         <module>cargo-client-api</module>
         <module>cargo-async-gateway</module>
+        <module>cargo-emulator</module>
     </modules>
 
 
