@@ -105,8 +105,8 @@ public class UserDetailsImpl implements UserDetails {
             return false;
         UserDetailsImpl other = (UserDetailsImpl) obj;
         if (id == null) {
-			return other.id == null;
+            return other.id == null;
         } else return id.equals(other.id);
-	}
+    }
 
 }

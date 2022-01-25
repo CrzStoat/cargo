@@ -1,6 +1,5 @@
 package com.example.cargoClientApi.service.impl;
 
-
 import com.example.cargoClientApi.models.User;
 import com.example.cargoClientApi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
