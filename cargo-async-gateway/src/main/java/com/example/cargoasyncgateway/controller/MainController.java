@@ -1,7 +1,6 @@
 package com.example.cargoasyncgateway.controller;
 
 import com.example.cargoClientApi.models.SensorEvent;
-import com.example.cargoClientApi.repository.UserRepository;
 import com.example.cargoasyncgateway.kafka.KafkaSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
