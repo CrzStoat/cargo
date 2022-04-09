@@ -6,6 +6,12 @@
 4. Запустить CargoProcessorApplication
 5. Запустить CargoAsyncGatewayApplication
 6. Запустить CargoEmulatorApplication (Если нужна эмуляция трафика)
+7. Запустить из директории ./cargo-client-front
+- npm install
+- npm start
+
+http://localhost:3000/login
+user/user
 
 
 
