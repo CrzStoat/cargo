@@ -19,7 +19,13 @@ public class SensorController {
     public ResponseEntity<List<SensorInfo>> getSensorEventsByPage(@RequestParam("page") int page,
                                                             @RequestParam("page_size") int pageSize) {
 
-        return ResponseEntity.ok(sensorsService.mapSensorsWithEventsToInfo(page, pageSize));
+        return ResponseEntity.ok(sensorsService.getSensorsInfoByPage(page, pageSize));
+    }
+
+    @GetMapping("/sensors-info/get/{id}")
+    public ResponseEntity<SensorInfo> getSensorEventById(@PathVariable("id") String id) {
+
+        return ResponseEntity.ok(sensorsService.getSensorInfoById((int) Long.parseLong(id)));
     }
 
 }

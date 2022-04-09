@@ -23,15 +23,28 @@ public class SensorsServiceImpl implements SensorsService {
     @Autowired
     private SensorEventRepository sensorEventRepository;
 
-    public List<SensorInfo> mapSensorsWithEventsToInfo(int page, int pageSize) {
+    public List<SensorInfo> getSensorsInfoByPage(int page, int pageSize) {
         Page<Sensor> sensorPage = sensorRepository.findAll(PageRequest.of(page, pageSize));
-        return sensorPage.getContent().parallelStream()
-                .map(sensor -> new SensorInfo(
-                                sensor.getId(),
-                                sensor.getRegistrationDate(),
-                                sensorEventRepository.findById(sensor.getId())
-                                        .map(SensorEvent::getSensorValue).orElse(null)
-                        )
-                ).collect(Collectors.toList());
+        return mapSensorsWithEventsToInfo(sensorPage.getContent());
+    }
+
+    public SensorInfo getSensorInfoById(int id) {
+       Sensor sensor = sensorRepository.getById((long) id);
+        return mapSensorWithEventToInfo(sensor);
+    }
+
+    public List<SensorInfo> mapSensorsWithEventsToInfo(List<Sensor> sensors) {
+        return sensors.parallelStream()
+                .map(this::mapSensorWithEventToInfo)
+                .collect(Collectors.toList());
+    }
+
+    public SensorInfo mapSensorWithEventToInfo(Sensor sensor) {
+        return new SensorInfo(
+                sensor.getId(),
+                sensor.getRegistrationDate(),
+                sensorEventRepository.findById(sensor.getId())
+                        .map(SensorEvent::getSensorValue).orElse(null)
+        );
     }
 }
