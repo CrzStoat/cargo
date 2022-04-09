@@ -1,6 +1,6 @@
 import React from "react";
 import {Route, Switch} from "react-router-dom";
-import {SingleSensorComponent} from "./SingleSensorComponent";
+import SingleSensorComponent from "./SingleSensorComponent";
 import SensorsComponent from "./SensorsComponent";
 import LoginComponent from "./LoginComponent";
 

@@ -27,7 +27,8 @@ class SensorsComponent extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={{marginRight: "10px", marginLeft: "10px"}} >
+                <h1 className="text-center">Sensors</h1>
                 <div className="row row-cols-1 row-cols-md-2 g-4">
                     {
                         this.state.sensors.map(
@@ -41,7 +42,7 @@ class SensorsComponent extends React.Component {
                                             <p className="card-text">{sensor.value}</p>
                                         </div>
                                         <div className="card-footer">
-                                            <li><small>creationDt = {sensor.creationDate}</small></li>
+                                            <li><small>registrationDate = {sensor.registrationDate}</small></li>
                                         </div>
                                     </div>
                                 </div>
