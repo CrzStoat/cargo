@@ -6,13 +6,19 @@ class SensorsComponent extends React.Component {
     constructor() {
         super();
         this.state = {
-            sensors: []
+            sensors: [],
+            error: null
         }
     }
 
     tick() {
         getAllSensors().then((response) => {
-            this.setState({sensors: response.data})
+            this.setState({
+                error: null,
+                sensors: response.data
+            })
+        }).catch((error) => {
+            this.setState({error: error.response})
         })
     }
 
@@ -26,6 +32,10 @@ class SensorsComponent extends React.Component {
     }
 
     render() {
+        const error = this.state.error;
+        if (error){
+            return <small>{error.data.error}</small>
+        }
         return (
             <div style={{marginRight: "10px", marginLeft: "10px"}} >
                 <h1 className="text-center">Sensors</h1>

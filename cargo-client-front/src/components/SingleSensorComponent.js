@@ -6,13 +6,19 @@ class SingleSensorComponent extends React.Component {
         super();
         this.state = {
             id: props.match.params.id,
-            sensor: null
+            sensor: null,
+            error: null
         }
     }
 
     tick() {
         getSensorById(this.state.id).then((response) => {
-            this.setState({sensor: response.data})
+            this.setState({
+                error: null,
+                sensor: response.data
+            })
+        }).catch((error) => {
+            this.setState({error: error.response})
         })
     }
 
@@ -27,6 +33,10 @@ class SingleSensorComponent extends React.Component {
 
     render() {
         const sensor = this.state.sensor;
+        const error = this.state.error;
+        if (error){
+            return <small>{error.data.error}</small>
+        }
         if (!sensor){
             return <small>loading...</small>
         }
