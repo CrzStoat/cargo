@@ -1,0 +1,5 @@
+docker exec -it mycassandra bash
+cqlsh
+CREATE KEYSPACE sensorevent WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1}; 
+USE sensorevent;
+CREATE TABLE sensorevent(sensorid bigint PRIMARY KEY, sensorvalue bigint);

@@ -5,5 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
     <include file="classpath:/migrations/data/v1_add_roles.xml"/>
+    <include file="classpath:/migrations/data/v2_add_roles_to_user.xml"/>
+    <include file="classpath:/migrations/data/v3_add_sensors.xml"/>
 
 </databaseChangeLog>
