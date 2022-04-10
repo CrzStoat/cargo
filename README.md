@@ -1,4 +1,4 @@
-##Запуск проекта
+## Запуск проекта
 
 1. docker-compose up -d
 2. Выполнить команды из файла cassandraInit.txt
@@ -16,7 +16,7 @@ user/user
 
 
 
-##Суть проекта
+## Суть проекта
 Тестовый проект мониторинга датчиков автомобиля
 
 Две БД. 
@@ -31,7 +31,7 @@ user/user
 
 CargoEmulatorApplication - эмулятор трафика (для тестирования системы)
 
-##Сценарий использования
+## Сценарий использования
 1. CargoAsyncGatewayApplication асинхронно принимает ключ/значение (SensorEvent) датчика по http (/api/post). В качестве авторизации используется Api-key
 2. CargoAsyncGatewayApplication пересылает в топик кафки SensorEvent
 3. CargoProcessorApplication последовательно вычитывает из топика кафки SensorEvent'ы и обновляет запись в кассандре
