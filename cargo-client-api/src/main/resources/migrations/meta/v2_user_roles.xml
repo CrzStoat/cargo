@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet id="2" author="ki.mishin">
+        <createTable tableName="user_roles">
+            <column name="user_id" type="bigint">
+            </column>
+            <column name="role_id" type="bigint"/>
+        </createTable>
+        <createTable tableName="sensors">
+            <column name="id" type="bigserial">
+            </column>
+            <column name="registration_date" type="date"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
